@@ -10,13 +10,11 @@
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--fg);font-family:'Helvetica Neue',Arial,sans-serif;overflow-x:hidden;cursor:none}
 
-/* CURSOR */
 #cursor{position:fixed;width:12px;height:12px;background:var(--yellow);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform .1s}
 #cursor-ring{position:fixed;width:40px;height:40px;border:1px solid rgba(212,255,0,0.4);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:all .15s ease}
 
-/* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:28px 48px}
-.logo{font-size:1.1em;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--fg)}
+.logo img{height:32px;width:auto}
 .nav-links{display:flex;gap:32px;align-items:center}
 .nav-links a{color:var(--muted);text-decoration:none;font-size:0.8em;letter-spacing:2px;text-transform:uppercase;transition:color .2s}
 .nav-links a:hover{color:var(--yellow)}
@@ -24,17 +22,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .btn-pill:hover{border-color:var(--yellow);color:var(--yellow)}
 .dot{width:7px;height:7px;background:var(--yellow);border-radius:50%;display:inline-block}
 
-/* HERO */
 #hero{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 48px 80px;position:relative;overflow:hidden}
 .hero-bg{position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,13,11,0.3) 0%,rgba(14,13,11,0.85) 100%);z-index:1}
-.hero-video-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 60% 40%,rgba(212,255,0,0.06),transparent 60%),
-  linear-gradient(135deg,#1a1a14 0%,#0e0d0b 100%);z-index:0}
-/* Animated grain */
-.hero-video-bg::after{content:'';position:absolute;inset:-50%;width:200%;height:200%;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-  animation:grain 0.5s steps(2) infinite;opacity:0.4}
+.hero-video-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 60% 40%,rgba(212,255,0,0.06),transparent 60%),linear-gradient(135deg,#1a1a14 0%,#0e0d0b 100%);z-index:0}
+.hero-video-bg::after{content:'';position:absolute;inset:-50%;width:200%;height:200%;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");animation:grain 0.5s steps(2) infinite;opacity:0.4}
 @keyframes grain{0%{transform:translate(0,0)}25%{transform:translate(-2%,-3%)}50%{transform:translate(3%,1%)}75%{transform:translate(-1%,4%)}100%{transform:translate(2%,-2%)}}
-
 .hero-content{position:relative;z-index:2}
 .hero-tag{font-size:0.72em;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:24px}
 .hero-title{font-size:clamp(4em,11vw,10em);font-weight:900;line-height:0.9;letter-spacing:-4px;text-transform:uppercase;margin-bottom:40px}
@@ -46,17 +38,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .scroll-line{width:1px;height:60px;background:linear-gradient(var(--muted),transparent);animation:scrollLine 2s ease-in-out infinite}
 @keyframes scrollLine{0%,100%{opacity:0.3;transform:scaleY(0.5)}50%{opacity:1;transform:scaleY(1)}}
 
-/* MARQUEE */
 .marquee-wrap{border-top:1px solid rgba(255,255,255,0.08);border-bottom:1px solid rgba(255,255,255,0.08);padding:18px 0;overflow:hidden;white-space:nowrap;background:rgba(212,255,0,0.03)}
 .marquee-track{display:inline-block;animation:marquee 20s linear infinite}
 .marquee-track span{font-size:0.78em;letter-spacing:4px;text-transform:uppercase;color:var(--muted);margin:0 32px}
 .marquee-track .hi{color:var(--yellow)}
 @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
-/* SECTIONS */
-.section{padding:120px 48px;max-width:1400px;margin:0 auto}
-
-/* PROBLEM */
 #problem{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;padding:120px 48px}
 .big-word{font-size:clamp(5em,12vw,11em);font-weight:900;letter-spacing:-4px;text-transform:uppercase;line-height:0.85;color:rgba(240,237,230,0.06)}
 .problem-content{padding-top:20px}
@@ -69,7 +56,6 @@ h2{font-size:clamp(1.8em,4vw,3.2em);font-weight:800;letter-spacing:-1.5px;line-h
 .list-items li:hover{color:var(--fg)}
 .list-items li::before{content:'→';color:var(--yellow);flex-shrink:0}
 
-/* WHAT */
 #what{padding:0 48px 120px;max-width:1400px;margin:0 auto}
 .what-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:64px;padding-bottom:32px;border-bottom:1px solid rgba(255,255,255,0.08)}
 .what-title{font-size:clamp(2em,5vw,4em);font-weight:900;letter-spacing:-2px;text-transform:uppercase;max-width:500px;line-height:1}
@@ -81,7 +67,6 @@ h2{font-size:clamp(1.8em,4vw,3.2em);font-weight:800;letter-spacing:-1.5px;line-h
 .card h3{font-size:1.1em;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:16px}
 .card p{color:var(--muted);font-size:0.88em;line-height:1.7}
 
-/* OUTCOMES */
 #outcomes{background:#111008;padding:120px 48px}
 .outcomes-inner{max-width:1400px;margin:0 auto}
 .outcomes-header{display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-bottom:80px}
@@ -97,7 +82,6 @@ h2{font-size:clamp(1.8em,4vw,3.2em);font-weight:800;letter-spacing:-1.5px;line-h
 .oc h3{font-size:0.8em;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--yellow);margin-bottom:12px}
 .oc p{font-size:0.85em;color:var(--muted);line-height:1.6}
 
-/* WHY NOW */
 #whynow{padding:120px 48px;max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
 .forces{display:flex;flex-direction:column;gap:0}
 .force{padding:28px 0;border-top:1px solid rgba(255,255,255,0.08);display:grid;grid-template-columns:60px 1fr;gap:20px;align-items:center;transition:all .3s}
@@ -105,7 +89,6 @@ h2{font-size:clamp(1.8em,4vw,3.2em);font-weight:800;letter-spacing:-1.5px;line-h
 .force-num{font-size:2.5em;font-weight:900;color:rgba(240,237,230,0.15);letter-spacing:-2px;transition:color .3s}
 .force-text{color:var(--muted);font-size:0.92em;line-height:1.6}
 
-/* NOT */
 #positioning{padding:0 48px 120px;max-width:1400px;margin:0 auto}
 .not-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,0.08);margin:48px 0}
 .not-item{background:var(--bg);padding:32px;display:flex;align-items:center;gap:20px;transition:background .3s}
@@ -116,14 +99,12 @@ h2{font-size:clamp(1.8em,4vw,3.2em);font-weight:800;letter-spacing:-1.5px;line-h
 .connector p{font-size:clamp(1.2em,3vw,2em);font-weight:900;text-transform:uppercase;letter-spacing:-0.5px;color:#0e0d0b}
 .connector .arrow{font-size:2em;color:#0e0d0b}
 
-/* MYSTERY */
 #mystery{background:#0a0a07;padding:160px 48px;text-align:center}
 .mystery-inner{max-width:700px;margin:0 auto}
 #mystery h2{font-size:clamp(3em,8vw,7em);font-weight:900;letter-spacing:-3px;text-transform:uppercase;line-height:0.85;margin-bottom:40px}
 .mystery-text{color:var(--muted);font-size:1.05em;line-height:1.9;margin-bottom:48px}
 .mystery-text em{color:var(--fg);font-style:italic}
 
-/* CTA */
 #cta{padding:120px 48px 160px;max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:end}
 #cta h2{font-size:clamp(3em,8vw,7em);font-weight:900;letter-spacing:-3px;text-transform:uppercase;line-height:0.85}
 #cta h2 .outline{-webkit-text-stroke:1px var(--fg);color:transparent}
@@ -131,20 +112,30 @@ h2{font-size:clamp(1.8em,4vw,3.2em);font-weight:800;letter-spacing:-1.5px;line-h
 .cta-right p{color:var(--muted);font-size:0.95em;line-height:1.7;margin-bottom:16px}
 .btn-primary{display:inline-flex;align-items:center;gap:12px;background:var(--yellow);color:#0e0d0b;padding:18px 36px;border-radius:100px;font-size:0.85em;font-weight:800;letter-spacing:2px;text-transform:uppercase;border:none;cursor:none;transition:all .3s}
 .btn-primary:hover{transform:translateX(4px)}
-.btn-outline{display:inline-flex;align-items:center;gap:12px;border:1px solid rgba(240,237,230,0.2);color:var(--fg);padding:18px 36px;border-radius:100px;font-size:0.85em;font-weight:600;letter-spacing:2px;text-transform:uppercase;background:transparent;cursor:none;transition:all .3s}
+.btn-outline{display:inline-flex;align-items:center;gap:12px;border:1px solid rgba(240,237,230,0.2);color:var(--fg);padding:18px 36px;border-radius:100px;font-size:0.85em;font-weight:600;letter-spacing:2px;text-transform:uppercase;background:transparent;cursor:none;transition:all .3s;text-decoration:none}
 .btn-outline:hover{border-color:var(--yellow);color:var(--yellow)}
 .footer-note{color:var(--muted);font-size:0.78em;letter-spacing:2px;text-transform:uppercase;margin-top:8px}
 
-/* FOOTER */
 footer{border-top:1px solid rgba(255,255,255,0.08);padding:32px 48px;display:flex;justify-content:space-between;align-items:center}
 .footer-logo{font-size:1em;font-weight:800;letter-spacing:3px;text-transform:uppercase}
 footer p{color:var(--muted);font-size:0.78em;letter-spacing:1px}
 
-/* REVEAL ANIMATIONS */
 .reveal{opacity:0;transform:translateY(40px);transition:opacity 0.8s ease,transform 0.8s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
 .reveal-left{opacity:0;transform:translateX(-40px);transition:opacity 0.8s ease,transform 0.8s ease}
 .reveal-left.visible{opacity:1;transform:translateX(0)}
+
+/* MODAL */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:1000;align-items:center;justify-content:center}
+.modal-overlay.open{display:flex}
+.modal{background:#161510;border:1px solid rgba(212,255,0,0.2);border-radius:4px;padding:56px;max-width:520px;width:90%;position:relative}
+.modal h3{font-size:1.8em;font-weight:900;text-transform:uppercase;letter-spacing:-1px;margin-bottom:8px}
+.modal p{color:var(--muted);font-size:0.9em;margin-bottom:36px}
+.modal input,.modal textarea{width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:4px;padding:14px 16px;color:var(--fg);font-size:0.9em;font-family:inherit;margin-bottom:16px;outline:none;transition:border .2s}
+.modal input:focus,.modal textarea:focus{border-color:var(--yellow)}
+.modal textarea{height:120px;resize:none}
+.modal-close{position:absolute;top:20px;right:24px;background:none;border:none;color:var(--muted);font-size:1.4em;cursor:pointer;line-height:1}
+.modal-close:hover{color:var(--fg)}
 
 @media(max-width:900px){
   nav{padding:20px 24px}
@@ -159,15 +150,15 @@ footer p{color:var(--muted);font-size:0.78em;letter-spacing:1px}
 </head>
 <body>
 
-<!-- DEMO MODAL -->
+<!-- MODAL -->
 <div class="modal-overlay" id="demoModal">
   <div class="modal">
     <button class="modal-close" id="closeModal">✕</button>
     <h3>Request a<br/><span style="color:var(--yellow)">Private Demo</span></h3>
     <p>We'll be in touch within 24 hours.</p>
-    <input type="text" id="f-name" placeholder="Your name" />
-    <input type="text" id="f-company" placeholder="Company" />
-    <input type="email" id="f-email" placeholder="Email address" />
+    <input type="text" id="f-name" placeholder="Your name"/>
+    <input type="text" id="f-company" placeholder="Company"/>
+    <input type="email" id="f-email" placeholder="Email address"/>
     <textarea id="f-message" placeholder="Tell us briefly what you're working on"></textarea>
     <button class="btn-primary" id="sendDemo" style="width:100%;justify-content:center">Send Request →</button>
   </div>
@@ -177,7 +168,7 @@ footer p{color:var(--muted);font-size:0.78em;letter-spacing:1px}
 <div id="cursor-ring"></div>
 
 <nav>
-  <img src="logo.png" alt="Hoolsy" style="height:32px;width:auto"/>
+  <div class="logo"><img src="logo.png" alt="Hoolsy"/></div>
   <div class="nav-links">
     <a href="#what">What</a>
     <a href="#outcomes">Outcomes</a>
@@ -186,7 +177,6 @@ footer p{color:var(--muted);font-size:0.78em;letter-spacing:1px}
   </div>
 </nav>
 
-<!-- HERO -->
 <section id="hero">
   <div class="hero-video-bg"></div>
   <div class="hero-bg"></div>
@@ -197,14 +187,13 @@ footer p{color:var(--muted);font-size:0.78em;letter-spacing:1px}
     <div class="hero-bottom">
       <p class="hero-desc">Hoolsy transforms passive media consumption into measurable engagement, interaction, and revenue—without changing the content itself.</p>
       <div class="hero-ctas">
-        <button class="btn-primary">Request Access <span>→</span></button>
-        <button class="btn-outline">Book a Demo</button>
+        <button class="btn-primary" id="openDemo">Request Access <span>→</span></button>
+        <a href="https://calendly.com/hoolsy" target="_blank" class="btn-outline">Book a Demo</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- MARQUEE -->
 <div class="marquee-wrap">
   <div class="marquee-track">
     <span>Media</span><span class="hi">✦</span><span>AI</span><span class="hi">✦</span><span>Commerce</span><span class="hi">✦</span><span>Interaction</span><span class="hi">✦</span><span>Monetization</span><span class="hi">✦</span><span>Engagement</span><span class="hi">✦</span><span>Activation</span><span class="hi">✦</span>
@@ -212,7 +201,6 @@ footer p{color:var(--muted);font-size:0.78em;letter-spacing:1px}
   </div>
 </div>
 
-<!-- PROBLEM -->
 <div id="problem" class="reveal">
   <div class="big-word">GAP</div>
   <div class="problem-content">
@@ -229,7 +217,6 @@ footer p{color:var(--muted);font-size:0.78em;letter-spacing:1px}
   </div>
 </div>
 
-<!-- WHAT -->
 <div id="what">
   <div class="what-header reveal">
     <h2 class="what-title">We Activate What Others Only Measure</h2>
@@ -242,7 +229,6 @@ footer p{color:var(--muted);font-size:0.78em;letter-spacing:1px}
   </div>
 </div>
 
-<!-- OUTCOMES -->
 <div id="outcomes">
   <div class="outcomes-inner">
     <div class="outcomes-header reveal">
@@ -259,7 +245,6 @@ footer p{color:var(--muted);font-size:0.78em;letter-spacing:1px}
   </div>
 </div>
 
-<!-- WHY NOW -->
 <div id="whynow">
   <div class="reveal-left">
     <div class="section-label">Why Now</div>
@@ -273,7 +258,6 @@ footer p{color:var(--muted);font-size:0.78em;letter-spacing:1px}
   </div>
 </div>
 
-<!-- POSITIONING -->
 <div id="positioning">
   <div class="section-label reveal">Market Position</div>
   <h2 class="reveal" style="font-size:clamp(2em,5vw,4em);letter-spacing:-2px;text-transform:uppercase">A New Category in Media</h2>
@@ -289,7 +273,6 @@ footer p{color:var(--muted);font-size:0.78em;letter-spacing:1px}
   </div>
 </div>
 
-<!-- MYSTERY -->
 <div id="mystery">
   <div class="mystery-inner">
     <div class="section-label reveal" style="justify-content:center">Access</div>
@@ -298,14 +281,13 @@ footer p{color:var(--muted);font-size:0.78em;letter-spacing:1px}
   </div>
 </div>
 
-<!-- CTA -->
 <div id="cta">
   <h2 class="reveal">See What <span class="outline">Others Can't</span></h2>
   <div class="cta-right reveal">
     <p>We work with a limited number of partners to define the next era of media. Early access available upon request.</p>
     <div style="display:flex;flex-direction:column;gap:12px;align-items:flex-start">
-      <button class="btn-primary" id="openDemo">Request a Private Demo →</button>
-      <a href="https://calendly.com/hoolsy" target="_blank" class="btn-outline" style="text-decoration:none;cursor:none">Start a Conversation</a>
+      <button class="btn-primary" id="openDemo2">Request a Private Demo →</button>
+      <a href="https://calendly.com/hoolsy" target="_blank" class="btn-outline">Start a Conversation</a>
     </div>
     <p class="footer-note">● Early access · Limited partners</p>
   </div>
@@ -317,29 +299,17 @@ footer p{color:var(--muted);font-size:0.78em;letter-spacing:1px}
   <p>Privacy · Terms</p>
 </footer>
 
-/* MODAL */
-.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:1000;align-items:center;justify-content:center}
-.modal-overlay.open{display:flex}
-.modal{background:#161510;border:1px solid rgba(212,255,0,0.2);border-radius:4px;padding:56px;max-width:520px;width:90%;position:relative}
-.modal h3{font-size:1.8em;font-weight:900;text-transform:uppercase;letter-spacing:-1px;margin-bottom:8px}
-.modal p{color:var(--muted);font-size:0.9em;margin-bottom:36px}
-.modal input,.modal textarea{width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:4px;padding:14px 16px;color:var(--fg);font-size:0.9em;font-family:inherit;margin-bottom:16px;outline:none;transition:border .2s}
-.modal input:focus,.modal textarea:focus{border-color:var(--yellow)}
-.modal textarea{height:120px;resize:none}
-.modal-close{position:absolute;top:20px;right:24px;background:none;border:none;color:var(--muted);font-size:1.4em;cursor:pointer;line-height:1}
-.modal-close:hover{color:var(--fg)}
-
-// Custom cursor
+<script>
 const cursor = document.getElementById('cursor');
 const ring = document.getElementById('cursor-ring');
 let mx=0,my=0,rx=0,ry=0;
 document.addEventListener('mousemove',e=>{
-  mx=e.clientX; my=e.clientY;
-  cursor.style.left=mx+'px'; cursor.style.top=my+'px';
+  mx=e.clientX;my=e.clientY;
+  cursor.style.left=mx+'px';cursor.style.top=my+'px';
 });
 function animRing(){
-  rx+=(mx-rx)*0.12; ry+=(my-ry)*0.12;
-  ring.style.left=rx+'px'; ring.style.top=ry+'px';
+  rx+=(mx-rx)*0.12;ry+=(my-ry)*0.12;
+  ring.style.left=rx+'px';ring.style.top=ry+'px';
   requestAnimationFrame(animRing);
 }
 animRing();
@@ -348,35 +318,29 @@ document.querySelectorAll('button,a').forEach(el=>{
   el.addEventListener('mouseleave',()=>{ring.style.transform='translate(-50%,-50%) scale(1)';ring.style.borderColor='rgba(212,255,0,0.4)'});
 });
 
-// Scroll reveal
-const obs = new IntersectionObserver(entries=>{
+const obs=new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')});
 },{threshold:0.12});
 document.querySelectorAll('.reveal,.reveal-left').forEach(el=>obs.observe(el));
 
-// Scroll to CTA
-document.querySelectorAll('button').forEach(btn=>{
-  btn.addEventListener('click',()=>{
-    if(btn.classList.contains('btn-pill')){
-      document.getElementById('cta').scrollIntoView({behavior:'smooth'});
-    }
-  });
+document.querySelector('.btn-pill').addEventListener('click',()=>{
+  document.getElementById('cta').scrollIntoView({behavior:'smooth'});
 });
 
-// Modal
-const modal = document.getElementById('demoModal');
+const modal=document.getElementById('demoModal');
 document.getElementById('openDemo').addEventListener('click',()=>modal.classList.add('open'));
+document.getElementById('openDemo2').addEventListener('click',()=>modal.classList.add('open'));
 document.getElementById('closeModal').addEventListener('click',()=>modal.classList.remove('open'));
 modal.addEventListener('click',e=>{if(e.target===modal)modal.classList.remove('open')});
 
 document.getElementById('sendDemo').addEventListener('click',()=>{
-  const name = document.getElementById('f-name').value;
-  const company = document.getElementById('f-company').value;
-  const email = document.getElementById('f-email').value;
-  const message = document.getElementById('f-message').value;
+  const name=document.getElementById('f-name').value;
+  const company=document.getElementById('f-company').value;
+  const email=document.getElementById('f-email').value;
+  const message=document.getElementById('f-message').value;
   if(!name||!email){alert('Please fill in your name and email.');return;}
-  const body = `Name: ${name}%0ACompany: ${company}%0AEmail: ${email}%0A%0A${message}`;
-  window.location.href = `mailto:post@hoolsy.com?subject=Private Demo Request – ${company}&body=${body}`;
+  const body=`Name: ${name}%0ACompany: ${company}%0AEmail: ${email}%0A%0A${message}`;
+  window.location.href=`mailto:post@hoolsy.com?subject=Private Demo Request – ${company}&body=${body}`;
   modal.classList.remove('open');
 });
 </script>
