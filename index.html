@@ -159,11 +159,25 @@ footer p{color:var(--muted);font-size:0.78em;letter-spacing:1px}
 </head>
 <body>
 
+<!-- DEMO MODAL -->
+<div class="modal-overlay" id="demoModal">
+  <div class="modal">
+    <button class="modal-close" id="closeModal">✕</button>
+    <h3>Request a<br/><span style="color:var(--yellow)">Private Demo</span></h3>
+    <p>We'll be in touch within 24 hours.</p>
+    <input type="text" id="f-name" placeholder="Your name" />
+    <input type="text" id="f-company" placeholder="Company" />
+    <input type="email" id="f-email" placeholder="Email address" />
+    <textarea id="f-message" placeholder="Tell us briefly what you're working on"></textarea>
+    <button class="btn-primary" id="sendDemo" style="width:100%;justify-content:center">Send Request →</button>
+  </div>
+</div>
+
 <div id="cursor"></div>
 <div id="cursor-ring"></div>
 
 <nav>
-  <div class="logo">Hoolsy</div>
+  <img src="logo.png" alt="Hoolsy" style="height:32px;width:auto"/>
   <div class="nav-links">
     <a href="#what">What</a>
     <a href="#outcomes">Outcomes</a>
@@ -290,10 +304,9 @@ footer p{color:var(--muted);font-size:0.78em;letter-spacing:1px}
   <div class="cta-right reveal">
     <p>We work with a limited number of partners to define the next era of media. Early access available upon request.</p>
     <div style="display:flex;flex-direction:column;gap:12px;align-items:flex-start">
-      <button class="btn-primary">Request a Private Demo →</button>
-      <button class="btn-outline">Start a Conversation</button>
+      <button class="btn-primary" id="openDemo">Request a Private Demo →</button>
+      <a href="https://calendly.com/hoolsy" target="_blank" class="btn-outline" style="text-decoration:none;cursor:none">Start a Conversation</a>
     </div>
-    <a href="mailto:post@hoolsy.com" style="color:var(--muted);font-size:0.85em;letter-spacing:1px;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.15);padding-bottom:2px;transition:color .2s;margin-top:8px;display:inline-block" onmouseover="this.style.color='#d4ff00'" onmouseout="this.style.color=''">post@hoolsy.com</a>
     <p class="footer-note">● Early access · Limited partners</p>
   </div>
 </div>
@@ -304,7 +317,18 @@ footer p{color:var(--muted);font-size:0.78em;letter-spacing:1px}
   <p>Privacy · Terms</p>
 </footer>
 
-<script>
+/* MODAL */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:1000;align-items:center;justify-content:center}
+.modal-overlay.open{display:flex}
+.modal{background:#161510;border:1px solid rgba(212,255,0,0.2);border-radius:4px;padding:56px;max-width:520px;width:90%;position:relative}
+.modal h3{font-size:1.8em;font-weight:900;text-transform:uppercase;letter-spacing:-1px;margin-bottom:8px}
+.modal p{color:var(--muted);font-size:0.9em;margin-bottom:36px}
+.modal input,.modal textarea{width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:4px;padding:14px 16px;color:var(--fg);font-size:0.9em;font-family:inherit;margin-bottom:16px;outline:none;transition:border .2s}
+.modal input:focus,.modal textarea:focus{border-color:var(--yellow)}
+.modal textarea{height:120px;resize:none}
+.modal-close{position:absolute;top:20px;right:24px;background:none;border:none;color:var(--muted);font-size:1.4em;cursor:pointer;line-height:1}
+.modal-close:hover{color:var(--fg)}
+
 // Custom cursor
 const cursor = document.getElementById('cursor');
 const ring = document.getElementById('cursor-ring');
@@ -330,13 +354,30 @@ const obs = new IntersectionObserver(entries=>{
 },{threshold:0.12});
 document.querySelectorAll('.reveal,.reveal-left').forEach(el=>obs.observe(el));
 
-// Smooth scroll
+// Scroll to CTA
 document.querySelectorAll('button').forEach(btn=>{
   btn.addEventListener('click',()=>{
-    if(btn.textContent.includes('Demo')||btn.textContent.includes('Access')||btn.textContent.includes('Conversation')){
+    if(btn.classList.contains('btn-pill')){
       document.getElementById('cta').scrollIntoView({behavior:'smooth'});
     }
   });
+});
+
+// Modal
+const modal = document.getElementById('demoModal');
+document.getElementById('openDemo').addEventListener('click',()=>modal.classList.add('open'));
+document.getElementById('closeModal').addEventListener('click',()=>modal.classList.remove('open'));
+modal.addEventListener('click',e=>{if(e.target===modal)modal.classList.remove('open')});
+
+document.getElementById('sendDemo').addEventListener('click',()=>{
+  const name = document.getElementById('f-name').value;
+  const company = document.getElementById('f-company').value;
+  const email = document.getElementById('f-email').value;
+  const message = document.getElementById('f-message').value;
+  if(!name||!email){alert('Please fill in your name and email.');return;}
+  const body = `Name: ${name}%0ACompany: ${company}%0AEmail: ${email}%0A%0A${message}`;
+  window.location.href = `mailto:post@hoolsy.com?subject=Private Demo Request – ${company}&body=${body}`;
+  modal.classList.remove('open');
 });
 </script>
 </body>
