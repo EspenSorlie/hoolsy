@@ -38,10 +38,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .scroll-line{width:1px;height:60px;background:linear-gradient(var(--muted),transparent);animation:scrollLine 2s ease-in-out infinite}
 @keyframes scrollLine{0%,100%{opacity:0.3;transform:scaleY(0.5)}50%{opacity:1;transform:scaleY(1)}}
 
-.marquee-wrap{border-top:1px solid rgba(255,255,255,0.08);border-bottom:1px solid rgba(255,255,255,0.08);padding:18px 0;overflow:hidden;white-space:nowrap;background:rgba(212,255,0,0.03)}
+.marquee-wrap{border-top:1px solid rgba(255,255,255,0.08);border-bottom:1px solid rgba(255,255,255,0.08);padding:18px 0;overflow:hidden;white-space:nowrap;background:#1a1812}
 .marquee-track{display:inline-block;animation:marquee 20s linear infinite}
-.marquee-track span{font-size:0.78em;letter-spacing:4px;text-transform:uppercase;color:var(--muted);margin:0 32px}
-.marquee-track .hi{color:var(--yellow)}
+.marquee-track span{font-size:0.78em;letter-spacing:4px;text-transform:uppercase;color:#e8e4dc;margin:0 32px}
+.marquee-track .hi{color:#e8e4dc}
 @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
 #problem{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;padding:120px 48px}
@@ -182,7 +182,7 @@ footer p{color:var(--muted);font-size:0.78em;letter-spacing:1px}
   <div class="hero-bg"></div>
   <div class="scroll-hint"><div class="scroll-line"></div> Scroll</div>
   <div class="hero-content">
-    <p class="hero-tag">Interactive Media · AI · Commerce · 2026</p>
+    <p class="hero-tag">Interactive Media · AI · Commerce · 2025</p>
     <h1 class="hero-title">Turn<br/>Attention<br/>Into <span class="yellow">Action</span></h1>
     <div class="hero-bottom">
       <p class="hero-desc">Hoolsy transforms passive media consumption into measurable engagement, interaction, and revenue—without changing the content itself.</p>
@@ -194,10 +194,10 @@ footer p{color:var(--muted);font-size:0.78em;letter-spacing:1px}
   </div>
 </section>
 
-<div class="marquee-wrap">
+<div class="marquee-wrap" style="background:#f0ede6!important">
   <div class="marquee-track">
-    <span>Media</span><span class="hi">✦</span><span>AI</span><span class="hi">✦</span><span>Commerce</span><span class="hi">✦</span><span>Interaction</span><span class="hi">✦</span><span>Monetization</span><span class="hi">✦</span><span>Engagement</span><span class="hi">✦</span><span>Activation</span><span class="hi">✦</span>
-    <span>Media</span><span class="hi">✦</span><span>AI</span><span class="hi">✦</span><span>Commerce</span><span class="hi">✦</span><span>Interaction</span><span class="hi">✦</span><span>Monetization</span><span class="hi">✦</span><span>Engagement</span><span class="hi">✦</span><span>Activation</span><span class="hi">✦</span>
+    <span style="color:#1a1812">Attention is the asset</span><span class="hi" style="color:#d4ff00;font-size:1.4em;vertical-align:middle">✦</span><span style="color:#1a1812">Interaction is the bridge</span><span class="hi" style="color:#d4ff00;font-size:1.4em;vertical-align:middle">✦</span><span style="color:#1a1812">Revenue is the outcome</span><span class="hi" style="color:#d4ff00;font-size:1.4em;vertical-align:middle">✦</span>
+    <span style="color:#1a1812">Attention is the asset</span><span class="hi" style="color:#d4ff00;font-size:1.4em;vertical-align:middle">✦</span><span style="color:#1a1812">Interaction is the bridge</span><span class="hi" style="color:#d4ff00;font-size:1.4em;vertical-align:middle">✦</span><span style="color:#1a1812">Revenue is the outcome</span><span class="hi" style="color:#d4ff00;font-size:1.4em;vertical-align:middle">✦</span>
   </div>
 </div>
 
