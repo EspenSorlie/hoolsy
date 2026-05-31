@@ -6,9 +6,10 @@
 <title>Hoolsy</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#0e0d0b;--fg:#f0ede6;--yellow:#d4ff00;--muted:#6b6860}
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
+:root{--bg:#0e0d0b;--fg:#f0ede6;--yellow:#d4ff00;--muted:#f0ede6}
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--fg);font-family:'Helvetica Neue',Arial,sans-serif;overflow-x:hidden;cursor:none}
+body{background:var(--bg);color:var(--fg);font-family:'Space Grotesk',sans-serif;overflow-x:hidden;cursor:none}
 
 #cursor{position:fixed;width:12px;height:12px;background:var(--yellow);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform .1s}
 #cursor-ring{position:fixed;width:40px;height:40px;border:1px solid rgba(212,255,0,0.4);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:all .15s ease}
@@ -29,10 +30,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 @keyframes grain{0%{transform:translate(0,0)}25%{transform:translate(-2%,-3%)}50%{transform:translate(3%,1%)}75%{transform:translate(-1%,4%)}100%{transform:translate(2%,-2%)}}
 .hero-content{position:relative;z-index:2}
 .hero-tag{font-size:0.72em;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:24px}
-.hero-title{font-size:clamp(4em,11vw,10em);font-weight:900;line-height:0.9;letter-spacing:-4px;text-transform:uppercase;margin-bottom:40px}
+.hero-title{font-family:'Helvetica Neue',Arial,sans-serif;font-size:clamp(4em,11vw,10em);font-weight:900;line-height:0.9;letter-spacing:-4px;text-transform:uppercase;margin-bottom:40px}
 .hero-title .yellow{color:var(--yellow)}
 .hero-bottom{display:flex;justify-content:space-between;align-items:flex-end}
-.hero-desc{max-width:360px;color:var(--muted);font-size:0.9em;line-height:1.7}
+.hero-desc{max-width:360px;color:var(--muted);font-size:0.9em;line-height:1.45}
 .hero-ctas{display:flex;gap:12px}
 .scroll-hint{position:absolute;right:48px;top:50%;transform:translateY(-50%);writing-mode:vertical-rl;font-size:0.7em;letter-spacing:3px;text-transform:uppercase;color:var(--muted);z-index:2;display:flex;align-items:center;gap:12px}
 .scroll-line{width:1px;height:60px;background:linear-gradient(var(--muted),transparent);animation:scrollLine 2s ease-in-out infinite}
@@ -49,8 +50,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .problem-content{padding-top:20px}
 .section-label{font-size:0.7em;letter-spacing:4px;text-transform:uppercase;color:var(--yellow);margin-bottom:20px;display:flex;align-items:center;gap:10px}
 .section-label::before{content:'';width:24px;height:1px;background:var(--yellow)}
-h2{font-size:clamp(1.8em,4vw,3.2em);font-weight:800;letter-spacing:-1.5px;line-height:1.1;text-transform:uppercase;margin-bottom:24px}
-.body-text{color:var(--muted);line-height:1.8;font-size:0.95em;margin-bottom:20px}
+h2{font-family:'Helvetica Neue',Arial,sans-serif;font-size:clamp(1.8em,4vw,3.2em);font-weight:800;letter-spacing:-1.5px;line-height:1.1;text-transform:uppercase;margin-bottom:24px}
+.body-text{color:var(--muted);line-height:1.5;font-size:0.95em;margin-bottom:20px}
 .list-items{list-style:none;margin-top:24px}
 .list-items li{padding:14px 0;border-top:1px solid rgba(255,255,255,0.07);color:var(--muted);font-size:0.9em;display:flex;align-items:center;gap:12px;transition:color .2s}
 .list-items li:hover{color:var(--fg)}
@@ -102,7 +103,7 @@ h2{font-size:clamp(1.8em,4vw,3.2em);font-weight:800;letter-spacing:-1.5px;line-h
 #mystery{background:#0a0a07;padding:160px 48px;text-align:center}
 .mystery-inner{max-width:700px;margin:0 auto}
 #mystery h2{font-size:clamp(3em,8vw,7em);font-weight:900;letter-spacing:-3px;text-transform:uppercase;line-height:0.85;margin-bottom:40px}
-.mystery-text{color:var(--muted);font-size:1.05em;line-height:1.9;margin-bottom:48px}
+.mystery-text{color:var(--muted);font-size:1.05em;line-height:1.6;margin-bottom:48px}
 .mystery-text em{color:var(--fg);font-style:italic}
 
 #cta{padding:120px 48px 160px;max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:end}
@@ -146,6 +147,20 @@ footer p{color:var(--muted);font-size:0.78em;letter-spacing:1px}
   .hero-title{letter-spacing:-2px}
   .connector{flex-direction:column;gap:16px;text-align:center}
 }
+/* FARGE-OVERRIDE */
+.section-label,.card-num,.oc h3,.list-items li::before,.hero-title .yellow,.dot,.marquee-track .hi{color:#db4577!important}
+.section-label::before{background:#db4577!important}
+.btn-primary{background:#db4577!important}
+.connector{background:#db4577!important}
+.oc::after{background:#db4577!important}
+.modal{border-color:rgba(219,69,119,0.3)!important}
+#cursor{background:#db4577!important}
+#cursor-ring{border-color:rgba(219,69,119,0.4)!important}
+.scroll-line{background:linear-gradient(#db4577,transparent)!important}
+.nav-links a:hover,.btn-pill:hover,.list-items li:hover,.btn-outline:hover{color:#db4577!important}
+.btn-pill:hover,.btn-outline:hover{border-color:#db4577!important}
+.force:hover .force-num{color:#db4577!important}
+.modal input:focus,.modal textarea:focus{border-color:#db4577!important}
 </style>
 </head>
 <body>
@@ -154,7 +169,7 @@ footer p{color:var(--muted);font-size:0.78em;letter-spacing:1px}
 <div class="modal-overlay" id="demoModal">
   <div class="modal">
     <button class="modal-close" id="closeModal">✕</button>
-    <h3>Request a<br/><span style="color:var(--yellow)">Private Demo</span></h3>
+    <h3>Request a<br/><span style="color:#db4577">Private Demo</span></h3>
     <p>We'll be in touch within 24 hours.</p>
     <input type="text" id="f-name" placeholder="Your name"/>
     <input type="text" id="f-company" placeholder="Company"/>
@@ -188,16 +203,16 @@ footer p{color:var(--muted);font-size:0.78em;letter-spacing:1px}
       <p class="hero-desc">Hoolsy transforms passive media consumption into measurable engagement, interaction, and revenue—without changing the content itself.</p>
       <div class="hero-ctas">
         <button class="btn-primary" id="openDemo">Request Access <span>→</span></button>
-        <a href="https://calendly.com/hoolsy" target="_blank" class="btn-outline">Book a Demo</a>
+        <a href="mailto:hello@hoolsy.com?subject=Demo Request" class="btn-outline">Book a Demo</a>
       </div>
     </div>
   </div>
 </section>
 
-<div class="marquee-wrap" style="background:#f0ede6!important">
+<div class="marquee-wrap">
   <div class="marquee-track">
-    <span style="color:#1a1812">Attention is the asset</span><span class="hi" style="color:#d4ff00;font-size:1.4em;vertical-align:middle">✦</span><span style="color:#1a1812">Interaction is the bridge</span><span class="hi" style="color:#d4ff00;font-size:1.4em;vertical-align:middle">✦</span><span style="color:#1a1812">Revenue is the outcome</span><span class="hi" style="color:#d4ff00;font-size:1.4em;vertical-align:middle">✦</span>
-    <span style="color:#1a1812">Attention is the asset</span><span class="hi" style="color:#d4ff00;font-size:1.4em;vertical-align:middle">✦</span><span style="color:#1a1812">Interaction is the bridge</span><span class="hi" style="color:#d4ff00;font-size:1.4em;vertical-align:middle">✦</span><span style="color:#1a1812">Revenue is the outcome</span><span class="hi" style="color:#d4ff00;font-size:1.4em;vertical-align:middle">✦</span>
+    <span style="color:#0e0d0b">Attention is the asset</span><span class="hi" style="color:#db4577;font-size:0.7em;vertical-align:middle">●</span><span style="color:#0e0d0b">Interaction is the bridge</span><span class="hi" style="color:#db4577;font-size:0.7em;vertical-align:middle">●</span><span style="color:#0e0d0b">Revenue is the outcome</span><span class="hi" style="color:#db4577;font-size:0.7em;vertical-align:middle">●</span>
+    <span style="color:#0e0d0b">Attention is the asset</span><span class="hi" style="color:#db4577;font-size:0.7em;vertical-align:middle">●</span><span style="color:#0e0d0b">Interaction is the bridge</span><span class="hi" style="color:#db4577;font-size:0.7em;vertical-align:middle">●</span><span style="color:#0e0d0b">Revenue is the outcome</span><span class="hi" style="color:#db4577;font-size:0.7em;vertical-align:middle">●</span>
   </div>
 </div>
 
@@ -287,7 +302,7 @@ footer p{color:var(--muted);font-size:0.78em;letter-spacing:1px}
     <p>We work with a limited number of partners to define the next era of media. Early access available upon request.</p>
     <div style="display:flex;flex-direction:column;gap:12px;align-items:flex-start">
       <button class="btn-primary" id="openDemo2">Request a Private Demo →</button>
-      <a href="https://calendly.com/hoolsy" target="_blank" class="btn-outline">Start a Conversation</a>
+      <a href="mailto:hello@hoolsy.com?subject=Let's start a conversation" class="btn-outline">Start a Conversation</a>
     </div>
     <p class="footer-note">● Early access · Limited partners</p>
   </div>
@@ -340,7 +355,7 @@ document.getElementById('sendDemo').addEventListener('click',()=>{
   const message=document.getElementById('f-message').value;
   if(!name||!email){alert('Please fill in your name and email.');return;}
   const body=`Name: ${name}%0ACompany: ${company}%0AEmail: ${email}%0A%0A${message}`;
-  window.location.href=`mailto:post@hoolsy.com?subject=Private Demo Request – ${company}&body=${body}`;
+  window.location.href=`mailto:hello@hoolsy.com?subject=Private Demo Request – ${company}&body=${body}`;
   modal.classList.remove('open');
 });
 </script>
