@@ -163,6 +163,51 @@ footer p{color:var(--muted);font-size:0.78em;letter-spacing:1px}
 .force:hover .force-num{color:#e5e83f!important}
 .modal input:focus,.modal textarea:focus{border-color:#e5e83f!important}
 .btn-pill .dot{background:#e5e83f!important}
+
+/* HAMBURGER / MOBILE MENU – base */
+.hamburger{display:none;background:none;border:none;padding:0;cursor:pointer}
+.mobile-menu{display:none}
+
+@media (max-width:600px){
+  #cursor,#cursor-ring{display:none}
+  body{cursor:auto}
+  button,a,.btn-pill,.btn-primary,.btn-outline,.modal-close{cursor:pointer}
+
+  .hero-title{font-size:clamp(2.6em,13vw,3.6em);letter-spacing:-1.5px}
+  .hero-bottom{flex-direction:column;align-items:flex-start;gap:28px}
+  .hero-ctas{flex-direction:column;width:100%;gap:12px}
+  .hero-desc{max-width:100%}
+  .scroll-hint{display:none}
+
+  .btn-primary,.btn-outline{width:100%;justify-content:center;padding:17px 24px}
+
+  #problem,#what,#outcomes,#whynow,#positioning,#cta{padding:60px 20px}
+  #mystery{padding:80px 20px}
+
+  #mystery h2,#cta h2{font-size:clamp(2.4em,11vw,4em)}
+  .outcomes-title{font-size:clamp(2em,9vw,3em)}
+  .what-title{font-size:clamp(1.8em,8vw,3em)}
+
+  .big-word{font-size:6em}
+  .card{padding:24px 20px}
+  .oc{padding:24px 20px}
+  .modal{padding:32px 24px}
+  .connector{padding:24px 20px}
+
+  nav{padding:20px 20px}
+  .nav-links{display:none}
+  .hamburger{display:flex;flex-direction:column;justify-content:space-between;width:26px;height:20px;z-index:1001}
+  .hamburger span{display:block;width:26px;height:2px;background:var(--fg);transition:transform .3s ease,opacity .2s ease}
+  .hamburger.active span:nth-child(1){transform:translateY(9px) rotate(45deg)}
+  .hamburger.active span:nth-child(2){opacity:0}
+  .hamburger.active span:nth-child(3){transform:translateY(-9px) rotate(-45deg)}
+
+  .mobile-menu{position:fixed;inset:0;background:#000;z-index:1000;flex-direction:column;justify-content:center;align-items:center;gap:36px;padding:32px}
+  .mobile-menu.open{display:flex}
+  .mobile-menu a{color:var(--fg);text-decoration:none;font-size:1.8em;font-weight:800;text-transform:uppercase;letter-spacing:2px}
+  .mobile-menu .menu-close{position:absolute;top:22px;right:22px;background:none;border:none;color:var(--fg);font-size:1.6em;cursor:pointer;line-height:1}
+  .mobile-menu #menuRequest{margin-top:20px;width:auto;padding:17px 32px}
+}
 </style>
 </head>
 <body>
@@ -192,7 +237,15 @@ footer p{color:var(--muted);font-size:0.78em;letter-spacing:1px}
     <a href="#cta">Contact</a>
     <button class="btn-pill"><span class="dot"></span> Request Access</button>
   </div>
+  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="menu-close" id="menuClose" aria-label="Close">✕</button>
+  <a href="#what">What</a>
+  <a href="#outcomes">Outcomes</a>
+  <a href="#cta">Contact</a>
+  <button class="btn-primary" id="menuRequest">Request Access →</button>
+</div>
 
 <section id="hero">
   <div class="hero-video-bg"></div>
@@ -349,6 +402,15 @@ document.getElementById('openDemo').addEventListener('click',()=>modal.classList
 document.getElementById('openDemo2').addEventListener('click',()=>modal.classList.add('open'));
 document.getElementById('closeModal').addEventListener('click',()=>modal.classList.remove('open'));
 modal.addEventListener('click',e=>{if(e.target===modal)modal.classList.remove('open')});
+
+const hamburger=document.getElementById('hamburger');
+const mobileMenu=document.getElementById('mobileMenu');
+const menuClose=document.getElementById('menuClose');
+const closeMenu=()=>{mobileMenu.classList.remove('open');hamburger.classList.remove('active')};
+hamburger.addEventListener('click',()=>{mobileMenu.classList.add('open');hamburger.classList.add('active')});
+menuClose.addEventListener('click',closeMenu);
+mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
+document.getElementById('menuRequest').addEventListener('click',()=>{closeMenu();modal.classList.add('open')});
 
 document.getElementById('sendDemo').addEventListener('click',()=>{
   const name=document.getElementById('f-name').value;
